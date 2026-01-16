@@ -23,10 +23,18 @@ In this version, the ALU focuses on implementing a NAND operation. Each bit of t
 The final result is assembled onto an output byte bus, allowing the computed value to be compared against the expected result. This structure establishes the foundation for extending the ALU with additional arithmetic and logical operations in future iterations.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5c0d2245-03a5-40d7-8aaa-dee9b70bd534" />
 
-Space-constrained memory :
+PETITE BOX:
+This step implements a small-scale combinational and sequential logic module.
+
+The circuit accepts two primary inputs, labeled A and B, and processes them through a combination of XOR and AND gates to generate intermediate signals. These signals are then fed into a set of sequential storage elements (flip-flops or latches) controlled by dedicated save signals. The storage components capture the computed results only when the corresponding control signals are active, ensuring synchronization between computation and memory update. The outputs, labeled A0, A1, B0, and B1, represent the stored values from the sequential elements and are only updated after the controlled save cycle.
+
+This structure demonstrates a micro-level implementation of data routing, storage, and conditional output within a small logic block, providing a foundation for more complex memory and arithmetic circuits in later stages.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bb39aeba-4bac-4f4e-bbb0-5fcb8ec2f62b" />
 
-Arithmetic logic unit - Version 2:
+ARITHMETIC UNIT LOGIC - VERSION 2: 
+This step implements a basic arithmetic logic module capable of performing addition and subtraction.
+
+The unit accepts two multi-bit inputs and a code signal specifying the operation (e.g., ADD or SUB). The inputs are routed through a combination of XOR, AND, OR, NAND, and NOR gates to handle bitwise operations and carry propagation. Conditional logic blocks manage operation selection, ensuring the correct arithmetic function is applied. Intermediate results are then combined and passed through sequential storage elements to produce the final output. The output bus displays the computed result only after the operation is complete, demonstrating controlled arithmetic computation at the bitwise level and forming the core of low-level processing in a CPU.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e31957ea-2bfb-48d9-925f-af73532ca2aa" />
 
 Register:
@@ -37,6 +45,10 @@ Instruction decoder:
 
 Conditions:
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5f86ba4a-696e-4675-b685-c7e453ef8810" />
+
+Immediate values:
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/777320ae-236b-4f2b-b843-be2e144ea52f" />
+
 
 
 
