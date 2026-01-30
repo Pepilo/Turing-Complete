@@ -49,11 +49,37 @@ The circuit analyzes an 8-bit signed value by combining bit decoding, sign detec
 The output signal is asserted only when the selected condition evaluates to true. This module is fully combinational and does not store state, ensuring that condition results always reflect the current input value
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5f86ba4a-696e-4675-b685-c7e453ef8810" />
 
-Immediate values:
+IMMEDIATE VALUES: 
+
+This module implements immediate constant loading within the architecture.
+
+The circuit allows fixed 8-bit values encoded in the program memory to be routed directly into the data path. Instruction bits are decoded to select and propagate immediate values through a dedicated multiplexing network. These constants can then be injected into the internal bus and used by registers or the ALU without requiring prior memory access.
+
+The design relies on combinational decoding logic and bus gating to ensure that only the selected immediate value drives the bus at a given cycle. This component extends the instruction set by enabling literal operands, which is essential for arithmetic operations, comparisons, and control flow initialization.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/777320ae-236b-4f2b-b843-be2e144ea52f" />
 
-Turing complete:
+CONDITIONAL EXECUTION: 
+
+This step integrates condition evaluation into calculation opcodes.
+
+The architecture now combines arithmetic operation decoding with condition flags produced by the condition module. Each calculation instruction can be selectively enabled or suppressed based on the current condition result. Logical gating ensures that ALU operations and register writes only occur when the specified condition evaluates to true.
+
+By merging opcode decoding with conditional control signals, the processor supports conditional arithmetic without dedicated branch instructions. This mechanism is a key building block toward full control flow expressiveness and contributes directly to achieving Turing completeness.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d20a63c5-1205-4816-baa3-6724ed023b86" />
+
+:star:Turing Completeness
+
+At this stage, the architecture reaches full Turing completeness.
+
+The system now combines arithmetic operations, immediate value injection, conditional evaluation, and conditional execution within a unified control path. Data can be modified through the ALU, stored in registers, and reused across cycles, providing persistent state. Conditional logic allows operations to be enabled or suppressed based on computed values, enabling decision-making within programs.
+
+By supporting conditional arithmetic and stateful computation, the architecture can implement loops, emulate conditional branches, and construct arbitrary control flow through instruction sequencing. These capabilities are sufficient to simulate a Turing machine, making the processor computationally universal.
+
+This milestone marks the transition from a fixed-function datapath to a fully programmable system capable of expressing any computable algorithm within its resource limits.
+
+Binary editor:
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e6e95abb-66cd-4ed1-9582-205660104410" />
+
 
 
 
