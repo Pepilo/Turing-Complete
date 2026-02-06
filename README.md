@@ -80,6 +80,9 @@ This milestone marks the transition from a fixed-function datapath to a fully pr
 Binary editor:
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e6e95abb-66cd-4ed1-9582-205660104410" />
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/255a563f-aae2-4021-a5f5-de64e12c920a" />
+
+
 
 
 
