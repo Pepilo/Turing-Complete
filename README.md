@@ -86,6 +86,9 @@ Binary editor:
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/68d6f37c-940c-40a0-9e3e-12a85f2ef603" />
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eaf6b0b1-6ec1-4eba-8d64-39e2e1351262" />
+
+
 
 
 
