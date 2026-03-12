@@ -80,7 +80,34 @@ This milestone marks the transition from a fixed-function datapath to a fully pr
 Binary editor:
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e6e95abb-66cd-4ed1-9582-205660104410" />
 
+In this stage, the program is written directly in binary form using the built-in memory editor. Each instruction is encoded as a sequence of bytes where the bits represent:
+
+- the operation code (opcode) that defines which action the CPU must perform,
+
+- the memory addresses involved in the operation,
+
+- the values or registers used by the instruction.
+
+The goal of the level is simple: add 5 to the input value.
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/255a563f-aae2-4021-a5f5-de64e12c920a" />
+
+In this stage, the program is no longer written directly in raw binary. Instead, a custom assembler layer is introduced to make programs easier to read and write.
+
+However, unlike traditional assembly languages, the instructions are not predefined. I must manually define them by associating a sequence of bits with a human-readable instruction name.
+
+This means that each instruction in the assembler corresponds to a specific binary pattern that will be emitted into memory when the program is assembled.
+
+The workflow is therefore:
+
+Define instructions
+Each instruction (such as add, AND, or register transfers) is created by assigning it a binary code. This binary sequence represents the low-level control signals executed by the CPU.
+
+Create symbolic names
+These binary patterns are given meaningful names so they can be reused in the program. This effectively builds a small custom instruction set.
+
+Write the program using the defined instructions
+Once defined, the instructions can be used to build logic using labels, constants, and control flow.
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5c09353b-305e-4f1c-9c93-6311f8fe28ff" />
 
