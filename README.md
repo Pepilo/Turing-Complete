@@ -115,6 +115,8 @@ Once defined, the instructions can be used to build logic using labels, constant
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eaf6b0b1-6ec1-4eba-8d64-39e2e1351262" />
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/33f67147-c880-4461-ad4c-6f6f666bb847" />
+
 
 
 
