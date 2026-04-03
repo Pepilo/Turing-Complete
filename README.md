@@ -111,9 +111,51 @@ Once defined, the instructions can be used to build logic using labels, constant
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5c09353b-305e-4f1c-9c93-6311f8fe28ff" />
 
+In this stage, the goal is to program a robot to autonomously navigate and escape a maze using the custom assembler built in the previous step.
+
+The challenge is no longer about defining instructions, but about using them effectively to implement a navigation strategy under low-level constraints. The robot interacts with its environment through limited inputs (such as wall detection) and must decide its movements accordingly.
+
+To solve this, I implemented a control loop that continuously:
+
+Reads the environment (e.g., detecting walls in specific directions)
+Stores intermediate state in registers
+Chooses the next movement (turn left, right, or move forward)
+Executes the corresponding action
+
+The program relies heavily on conditional jumps and register-based logic to adapt to the maze structure. Labels are used to organize the flow (looping, turning logic, decision branches), effectively recreating higher-level control structures in assembly.
+
+This stage highlights how even simple behaviors—like following a wall or choosing a direction—require careful handling when working at such a low level. It also demonstrates how the custom instruction set can be composed to build more complex, stateful behavior.
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/68d6f37c-940c-40a0-9e3e-12a85f2ef603" />
 
+In this stage, the abstraction layer of the assembler is removed, and the program is written directly using raw binary instructions again.
+
+Unlike previous steps where instructions had symbolic names, I now have to manipulate the exact byte values stored in memory. Each number directly represents an instruction or data, making the program much less readable but closer to how the machine actually operates.
+
+The objective here is to implement a timed behavior based on clock cycles:
+
+During even cycles, the system reads and stores incoming data into memory
+During odd cycles, it outputs two bytes at a time
+
+To achieve this, I rely on low-level components such as logic gates and counters to detect cycle parity (even vs odd), and control when data should be written or sent to the output.
+
+This stage emphasizes the transition from a human-friendly representation (assembler) back to pure machine-level control. It highlights how timing, data flow, and control signals must be explicitly managed without the help of higher-level abstractions.
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eaf6b0b1-6ec1-4eba-8d64-39e2e1351262" />
+
+In this stage, the focus shifts from programming to hardware architecture design, following a LED-based (Little Endian Data) structure to organize data flow and computation.
+
+Instead of writing instructions, I now build the underlying datapath of the system:
+
+Registers are implemented to store intermediate values
+Buses are used to route data between components
+Control signals orchestrate when data is read, written, or transformed
+
+A key part of this step is implementing the ADD opcode directly at the hardware level. This involves wiring together logic components to perform binary addition and ensuring the result is correctly propagated through the system.
+
+The resulting circuit becomes significantly more complex, with many interconnected components (hence the “spaghetti” structure). Each connection represents a precise data or control dependency that must be carefully managed.
+
+This stage highlights how higher-level instructions ultimately rely on well-structured hardware foundations, and how even a simple operation like addition requires coordinated interactions between multiple low-level components.
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/33f67147-c880-4461-ad4c-6f6f666bb847" />
 
