@@ -237,6 +237,11 @@ This stage marks an important milestone, as the architecture now resembles a mor
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8597294b-993b-4798-9d06-428f8a408e5b" />
 
+## Stack Implementation using RAM
+
+<img width="1909" height="1076" alt="image" src="https://github.com/user-attachments/assets/4791ebba-e9ea-4326-a127-554247a2042f" />
+
+
 
 
 
