@@ -1,6 +1,8 @@
 # Turing-Complete
 A NAND-to-CPU systems-building project that constructs a full processor—from logic gates to a custom assembler—to explore computing from the ground up.
 
+After completing the RAM integration, I considered the project finished, having learned a tremendous amount about computer architecture and processor design along the way.
+
 ## Adding bytes
 
 Two input values are split into 8-bit buses and combined using a hierarchy of adders. Partial sums are grouped from lower to higher significance, with carries propagated accordingly. A final overflow carry from the most significant bit is handled by a dedicated component.
@@ -238,6 +240,19 @@ This stage marks an important milestone, as the architecture now resembles a mor
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8597294b-993b-4798-9d06-428f8a408e5b" />
 
 ## Stack Implementation using RAM
+
+This stage introduces a stack system (PILE) connected to the RAM architecture, allowing the processor to temporarily store and retrieve data during execution.
+
+I implemented:
+
+Push (EMPILER) and pop (DEPILER) operations
+Stack pointer management
+RAM addressing and read/write control logic
+Data buses linking the stack to the datapath
+
+In the screenshot, the system is performing a pop operation, retrieving the value 251 from the stack stored in RAM.
+
+This addition makes the architecture significantly more advanced, as it now supports dynamic temporary storage and more complex execution flows, bringing the project closer to a real processor design.
 
 <img width="1909" height="1076" alt="image" src="https://github.com/user-attachments/assets/4791ebba-e9ea-4326-a127-554247a2042f" />
 
